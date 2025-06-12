@@ -1,5 +1,7 @@
 # Custom Caddy with plugins
 
+Automatically releases a new version when a new version of Outline VPN is released.
+
 ## Plugin list
 
 - `github.com/iamd3vil/caddy_yaml_adapter`
@@ -9,3 +11,8 @@
 ## Base config file
 
 `/etc/caddy/config/caddy.yaml`
+
+## Supported platforms
+
+- linux/amd64
+- linux/arm64

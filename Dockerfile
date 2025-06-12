@@ -10,11 +10,11 @@ RUN xcaddy build \
   --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy
 
 # Stage 2: Final image
-FROM alpine:latest
-
-RUN apk add --no-cache ca-certificates
+FROM caddy:2-alpine
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
+RUN /usr/bin/caddy version
+RUN /usr/bin/caddy list-modules --skip-standard --versions
 
 ENTRYPOINT ["caddy"]
 CMD ["run", "--config", "/etc/caddy/config/app.yaml", "--adapter", "yaml", "--watch"]
