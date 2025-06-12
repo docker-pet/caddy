@@ -10,6 +10,7 @@ RUN xcaddy build \
   --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy
   --with github.com/mholt/caddy-dynamicdns
 
+  
 # Stage 2: Final image
 FROM caddy:2-alpine
 
