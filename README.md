@@ -9,6 +9,7 @@ Automatically releases a new version when a new version of [OutlineCaddy](https:
 - `github.com/iamd3vil/caddy_yaml_adapter`
 - `github.com/mholt/caddy-l4`
 - `github.com/Jigsaw-Code/outline-ss-server/outlinecaddy`
+- `github.com/mholt/caddy-dynamicdns`
 
 ## Base config file
 
