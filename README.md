@@ -16,3 +16,7 @@ Automatically releases a new version when a new version of Outline VPN is releas
 
 - linux/amd64
 - linux/arm64
+
+## Docker image
+
+`ghcr.io/docker-pet/caddy:latest`
