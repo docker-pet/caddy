@@ -25,7 +25,13 @@ jobs:
           go get -u ./...
           go mod tidy
 
+      - name: Check if there are any changes
+        id: changes
+        run: |
+          git diff --quiet || echo "changed=true" >> "$GITHUB_OUTPUT"
+
       - name: Commit updated go.mod/go.sum
+        if: steps.changes.outputs.changed == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(deps): update Caddy plugins"
