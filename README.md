@@ -12,6 +12,7 @@ abiosoft/caddy-yaml
 - `github.com/Jigsaw-Code/outline-ss-server/outlinecaddy`
 - `github.com/mholt/caddy-dynamicdns`
 - `github.com/caddy-dns/cloudflare`
+- `github.com/hslatman/caddy-crowdsec-bouncer/crowdsec`
 
 
 ## Base config file
