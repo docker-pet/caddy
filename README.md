@@ -12,7 +12,7 @@ Automatically releases a new version when a new version of [OutlineCaddy](https:
 
 ## Base config file
 
-`/etc/caddy/config/caddy.yaml`
+`/etc/caddy/caddy.yaml`
 
 ## Supported platforms
 

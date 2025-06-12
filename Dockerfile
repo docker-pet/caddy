@@ -17,7 +17,7 @@ RUN /usr/bin/caddy version
 RUN /usr/bin/caddy list-modules --skip-standard --versions
 
 ENTRYPOINT ["caddy"]
-CMD ["run", "--config", "/etc/caddy/config/app.yaml", "--adapter", "yaml", "--watch"]
+CMD ["run", "--config", "/etc/caddy/caddy.yaml", "--adapter", "yaml", "--watch"]
 
 EXPOSE 80
 EXPOSE 443
