@@ -1,6 +1,6 @@
 # Custom Caddy with plugins
 
-[![Build and Release Caddy](https://github.com/docker-pet/caddy/actions/workflows/build-and-release.yml/badge.svg)](https://github.com/docker-pet/caddy/actions/workflows/build-and-release.yml) [![Check plugin updates](https://github.com/docker-pet/caddy/actions/workflows/check-updates.yml/badge.svg)](https://github.com/docker-pet/caddy/actions/workflows/check-updates.yml)
+[![Update & Release](https://github.com/docker-pet/caddy/actions/workflows/update-and-release.yml/badge.svg)](https://github.com/docker-pet/caddy/actions/workflows/update-and-release.yml)
 
 Automatically releases a new version when a new version of Outline VPN is released.
 

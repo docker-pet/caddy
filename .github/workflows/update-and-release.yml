@@ -1,48 +1,55 @@
-name: Build and Release Caddy
+name: Check for Plugin Updates & Release Caddy
 
 on:
-  workflow_run:
-    workflows: ["Check plugin updates"]
-    types:
-      - completed
-  push:
-    paths:
-      - go.mod
-      - go.sum
-      - Dockerfile
-      - .github/workflows/build-and-release.yml
-    branches:
-      - main
+  schedule:
+    - cron: '43 5 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
   packages: write
 
 jobs:
-  build:
+  update-and-release:
     runs-on: ubuntu-latest
-    outputs:
-      tag: ${{ steps.tag.outputs.version }}
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Check if current commit is already tagged
-        id: already_tagged
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.24
+
+      - name: Check for module updates
         run: |
-          TAG_ON_HEAD=$(git tag --points-at HEAD)
-          if [ -n "$TAG_ON_HEAD" ]; then
-            echo "Commit already tagged with $TAG_ON_HEAD"
-            echo "skip_build=true" >> $GITHUB_OUTPUT
+          go list -m -u all | grep -v "(latest)" || echo "No updates"
+          go get -u ./...
+          go mod tidy
+
+      - name: Check if go.mod or go.sum changed
+        id: changes
+        run: |
+          if git diff --quiet go.mod go.sum; then
+            echo "No dependency updates detected."
+            echo "updated=false" >> "$GITHUB_OUTPUT"
           else
-            echo "No tag found on current commit"
-            echo "skip_build=false" >> $GITHUB_OUTPUT
+            echo "Dependencies changed."
+            echo "updated=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Exit if already built
-        if: steps.already_tagged.outputs.skip_build == 'true'
+      - name: Exit if no updates
+        if: steps.changes.outputs.updated == 'false'
         run: |
-          echo "This commit was already built and tagged. Skipping."
+          echo "No plugin updates, exiting workflow."
           exit 0
+
+      - name: Commit updated go.mod/go.sum
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(deps): update Caddy plugins"
+          branch: main
 
       - name: Extract version & bump
         id: tag
