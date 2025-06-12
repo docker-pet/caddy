@@ -2,7 +2,7 @@ module github.com/docker-pet/caddy
 
 go 1.24
 
-require github.com/Jigsaw-Code/outline-ss-server/outlinecaddy latest
+require github.com/Jigsaw-Code/outline-ss-server/outlinecaddy v0.0.1
 
 require (
 	cel.dev/expr v0.24.0 // indirect
