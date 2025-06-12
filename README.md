@@ -2,7 +2,7 @@
 
 [![Update & Release](https://github.com/docker-pet/caddy/actions/workflows/update-and-release.yml/badge.svg)](https://github.com/docker-pet/caddy/actions/workflows/update-and-release.yml)
 
-Automatically releases a new version when a new version of Outline VPN is released.
+Automatically releases a new version when a new version of [OutlineCaddy](https://github.com/Jigsaw-Code/outline-ss-server/tree/master/outlinecaddy) is released.
 
 ## Plugin list
 
