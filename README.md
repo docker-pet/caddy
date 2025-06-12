@@ -11,6 +11,7 @@ Automatically releases a new version when a new version of [OutlineCaddy](https:
 - `github.com/mholt/caddy-l4`
 - `github.com/Jigsaw-Code/outline-ss-server/outlinecaddy`
 - `github.com/mholt/caddy-dynamicdns`
+- `github.com/caddy-dns/cloudflare`
 
 
 ## Base config file
