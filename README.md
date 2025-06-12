@@ -6,8 +6,8 @@ Automatically releases a new version when a new version of [OutlineCaddy](https:
 
 
 ## Plugin list
-
-- `github.com/iamd3vil/caddy_yaml_adapter`
+abiosoft/caddy-yaml
+- `github.com/abiosoft/caddy-yaml`
 - `github.com/mholt/caddy-l4`
 - `github.com/Jigsaw-Code/outline-ss-server/outlinecaddy`
 - `github.com/mholt/caddy-dynamicdns`

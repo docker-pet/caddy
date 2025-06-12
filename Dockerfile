@@ -5,7 +5,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 RUN xcaddy build \
-  --with github.com/iamd3vil/caddy_yaml_adapter \
+  --with github.com/abiosoft/caddy-yaml \
   --with github.com/mholt/caddy-l4 \
   --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy \
   --with github.com/mholt/caddy-dynamicdns \
