@@ -1,7 +1,5 @@
 # Stage 1: Build custom Caddy
-FROM golang:1.23-alpine AS builder
-
-RUN go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
+FROM caddy:2-builder AS builder
 
 COPY go.mod go.sum ./
 RUN go mod download
@@ -16,7 +14,7 @@ FROM alpine:latest
 
 RUN apk add --no-cache ca-certificates
 
-COPY --from=builder /root/caddy /usr/bin/caddy
+COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
 ENTRYPOINT ["caddy"]
 CMD ["run", "--config", "/etc/caddy/config/app.yaml", "--adapter", "yaml", "--watch"]
