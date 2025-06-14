@@ -38,7 +38,7 @@ require (
 	github.com/francoispqt/gojay v1.2.13 // indirect
 	github.com/go-jose/go-jose/v3 v3.0.4 // indirect
 	github.com/go-jose/go-jose/v4 v4.1.0 // indirect
-	github.com/go-sql-driver/mysql v1.9.2 // indirect
+	github.com/go-sql-driver/mysql v1.9.3 // indirect
 	github.com/go-task/slim-sprig/v3 v3.0.0 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/golang/snappy v1.0.0 // indirect
@@ -95,7 +95,7 @@ require (
 	github.com/spf13/pflag v1.0.6 // indirect
 	github.com/stoewer/go-strcase v1.3.0 // indirect
 	github.com/tailscale/tscert v0.0.0-20240608151842-d3f834017e53 // indirect
-	github.com/urfave/cli v1.22.16 // indirect
+	github.com/urfave/cli v1.22.17 // indirect
 	github.com/zeebo/blake3 v0.2.4 // indirect
 	go.etcd.io/bbolt v1.4.1 // indirect
 	go.step.sm/crypto v0.66.0 // indirect
