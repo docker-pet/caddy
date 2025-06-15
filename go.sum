@@ -39,8 +39,8 @@ github.com/Jigsaw-Code/outline-ss-server v1.9.2 h1:8AlzPLugCCa9H4ZIV79rWOdgVshRz
 github.com/Jigsaw-Code/outline-ss-server v1.9.2/go.mod h1:v0jS3ExOGwGTbWTpOw16/sid91k7PKxazdK9eLCpUlQ=
 github.com/Jigsaw-Code/outline-ss-server/outlinecaddy v0.0.1 h1:V6XDwphZ0UAf7YUte4NsM48j6o6Cd4p9LaGLxUTSv0A=
 github.com/Jigsaw-Code/outline-ss-server/outlinecaddy v0.0.1/go.mod h1:57uq2C5kK9iIHhokI/9/Vx4E5Q4CL61GCU/DbFWj7fg=
-github.com/KimMachineGun/automemlimit v0.7.2 h1:DyfHI7zLWmZPn2Wqdy2AgTiUvrGPmnYWgwhHXtAegX4=
-github.com/KimMachineGun/automemlimit v0.7.2/go.mod h1:QZxpHaGOQoYvFhv/r4u3U0JTC2ZcOwbSr11UZF46UBM=
+github.com/KimMachineGun/automemlimit v0.7.3 h1:oPgMp0bsWez+4fvgSa11Rd9nUDrd8RLtDjBoT3ro+/A=
+github.com/KimMachineGun/automemlimit v0.7.3/go.mod h1:QZxpHaGOQoYvFhv/r4u3U0JTC2ZcOwbSr11UZF46UBM=
 github.com/Masterminds/goutils v1.1.1 h1:5nUrii3FMTL5diU80unEVvNevw1nH4+ZV4DSLVJLSYI=
 github.com/Masterminds/goutils v1.1.1/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
 github.com/Masterminds/semver/v3 v3.3.1 h1:QtNSWtVZ3nBfk8mAOu/B6v7FMJ+NHTIgUPi7rj+4nv4=

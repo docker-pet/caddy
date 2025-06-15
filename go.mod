@@ -12,7 +12,7 @@ require (
 	github.com/Jigsaw-Code/outline-sdk v0.0.20 // indirect
 	github.com/Jigsaw-Code/outline-sdk/x v0.0.3 // indirect
 	github.com/Jigsaw-Code/outline-ss-server v1.9.2 // indirect
-	github.com/KimMachineGun/automemlimit v0.7.2 // indirect
+	github.com/KimMachineGun/automemlimit v0.7.3 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver/v3 v3.3.1 // indirect
 	github.com/Masterminds/sprig/v3 v3.3.0 // indirect
