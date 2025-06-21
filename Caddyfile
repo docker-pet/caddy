@@ -4,7 +4,7 @@
 		provider cloudflare {$CLOUDFLARE_API_TOKEN}
 		dynamic_domains
 		domains {
-			{$CLOUDFLARE_DOMAIN_ZONE}
+			{$CLOUDFLARE_DOMAIN_ZONE} {$CADDY_SERVICE_DOMAIN}
 		}
 	}
 }
