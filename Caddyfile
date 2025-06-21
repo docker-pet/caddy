@@ -13,7 +13,7 @@
     # Caddy Services
     handle_path {$CADDY_SERVICE_PATH}/* {
         basicauth {
-            service {$CADDY_SERVICE_PASSWORD}
+            service "{$CADDY_SERVICE_PASSWORD}"
         }
         reverse_proxy unix//var/run/caddy/admin.sock
     }

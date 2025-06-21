@@ -24,7 +24,7 @@ Automatically releases a new version when a new version of [OutlineCaddy](https:
 
 `CADDY_SERVICE_PATH` - Path to caddy admin & metrics prefix
 
-`CADDY_SERVICE_PASSWORD` - Password hash (`caddy hash-password --plaintext 'your-password'`)
+`CADDY_SERVICE_PASSWORD` - Password hash (`caddy hash-password --plaintext 'your-password'`) for HTTP Basic Auth to access the Caddy Admin API and metrics endpoints (`service` username)
 
 `CLOUDFLARE_API_TOKEN` - Auto DNS configuration [Clodufalre token](https://dash.cloudflare.com/profile/api-tokens)
 
