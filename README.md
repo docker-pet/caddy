@@ -6,18 +6,23 @@ Automatically releases a new version when a new version of [OutlineCaddy](https:
 
 
 ## Plugin list
-abiosoft/caddy-yaml
-- `github.com/abiosoft/caddy-yaml`
+
 - `github.com/mholt/caddy-l4`
 - `github.com/Jigsaw-Code/outline-ss-server/outlinecaddy`
 - `github.com/mholt/caddy-dynamicdns`
 - `github.com/caddy-dns/cloudflare`
-- `github.com/hslatman/caddy-crowdsec-bouncer/crowdsec`
 
 
 ## Base config file
 
-`/etc/caddy/config/app.yaml`
+`/etc/caddy/Caddyfile`
+
+## Enviroment variables
+
+`CADDY_SERVICE_DOMAIN` - Caddy Admin API & Metrics domain
+`CADDY_SERVICE_PATH` - Path to caddy admin & metrics prefix
+`CADDY_SERVICE_PASSWORD` - Password hash (`caddy hash-password --plaintext 'your-password'`)
+`CLOUDFLARE_API_TOKEN` - Auto DNS configuration [Clodufalre token](https://dash.cloudflare.com/profile/api-tokens)
 
 
 ## Supported platforms

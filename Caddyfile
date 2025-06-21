@@ -1,0 +1,19 @@
+{
+    admin unix//var/run/caddy/admin.sock
+	dynamic_dns {
+		provider cloudflare {$CLOUDFLARE_API_TOKEN}
+		domains {
+			{$CADDY_SERVICE_DOMAIN} @
+		}
+	}
+}
+
+{$CADDY_SERVICE_DOMAIN} {
+    # Caddy Services
+    handle_path {$CADDY_SERVICE_PATH}/* {
+        basicauth {
+            service {$CADDY_SERVICE_PASSWORD}
+        }
+        reverse_proxy unix//var/run/caddy/admin.sock
+    }
+}

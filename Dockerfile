@@ -5,13 +5,10 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 RUN xcaddy build \
-  --with github.com/abiosoft/caddy-yaml \
   --with github.com/mholt/caddy-l4 \
   --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy \
   --with github.com/mholt/caddy-dynamicdns \
-  --with github.com/caddy-dns/cloudflare \
-  --with github.com/hslatman/caddy-crowdsec-bouncer/crowdsec
-
+  --with github.com/caddy-dns/cloudflare
 
 # Stage 2: Final image
 FROM caddy:2-alpine
@@ -20,9 +17,10 @@ COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 RUN /usr/bin/caddy version
 RUN /usr/bin/caddy list-modules --skip-standard --versions
 
+COPY Caddyfile /etc/caddy/Caddyfile
+
 ENTRYPOINT ["caddy"]
-CMD ["run", "--config", "/etc/caddy/config/app.yaml", "--adapter", "yaml", "--watch"]
+CMD ["run", "--config", "/etc/caddy/Caddyfile"]
 
 EXPOSE 80
 EXPOSE 443
-EXPOSE 9091
