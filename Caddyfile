@@ -2,8 +2,9 @@
     admin unix//var/run/caddy/admin.sock
 	dynamic_dns {
 		provider cloudflare {$CLOUDFLARE_API_TOKEN}
+		dynamic_domains
 		domains {
-			{$CADDY_SERVICE_DOMAIN} @
+			{$CLOUDFLARE_DOMAIN_ZONE}
 		}
 	}
 }
