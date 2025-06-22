@@ -1,5 +1,5 @@
 {
-    admin unix//var/run/caddy/admin.sock
+    admin unix//outline_generated/admin.sock
 	dynamic_dns {
 		provider cloudflare {$CLOUDFLARE_API_TOKEN}
 		dynamic_domains
@@ -15,6 +15,6 @@
         basic_auth {
             service "{$CADDY_SERVICE_PASSWORD}"
         }
-        reverse_proxy unix//var/run/caddy/admin.sock
+        reverse_proxy unix//outline_generated/admin.sock
     }
 }

@@ -14,7 +14,7 @@ RUN xcaddy build \
 FROM caddy:2-alpine
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
-RUN mkdir -p /var/run/caddy/
+RUN mkdir -p /outline_generated/
 RUN /usr/bin/caddy version
 RUN /usr/bin/caddy list-modules --skip-standard --versions
 
