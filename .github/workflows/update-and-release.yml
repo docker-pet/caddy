@@ -2,7 +2,7 @@ name: Check for Plugin Updates & Release Caddy
 
 on:
   schedule:
-    - cron: '43 5 * * *'
+    - cron: '43 5 * * 6'
   workflow_dispatch:
 
 permissions:
