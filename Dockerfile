@@ -15,6 +15,8 @@ RUN xcaddy build \
 # Stage 2: Final image
 FROM caddy:2-alpine
 
+RUN apk add --no-cache curl
+
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 RUN mkdir -p /outline_generated/
 RUN /usr/bin/caddy version
