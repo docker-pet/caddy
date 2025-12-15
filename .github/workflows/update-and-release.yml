@@ -2,7 +2,7 @@ name: Check for Plugin Updates & Release Caddy
 
 on:
   schedule:
-    - cron: '43 5 * * 6'
+    - cron: '43 3 6 * *'
   workflow_dispatch:
 
 permissions:
@@ -23,32 +23,32 @@ jobs:
           go-version: 1.24
           cache: false
 
-      - name: Check for module updates
-        run: |
-          go list -m -u all | grep -v "(latest)" || echo "No updates"
-          go get -u ./...
-          go mod tidy
+      # - name: Check for module updates
+      #   run: |
+      #     go list -m -u all | grep -v "(latest)" || echo "No updates"
+      #     go get -u ./...
+      #     go mod tidy
 
-      - name: Check if go.mod or go.sum changed
-        id: changes
-        run: |
-          if git diff --quiet go.mod go.sum; then
-            echo "No dependency updates detected."
-            echo "updated=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "Dependencies changed."
-            echo "updated=true" >> "$GITHUB_OUTPUT"
-          fi
+      # - name: Check if go.mod or go.sum changed
+      #   id: changes
+      #   run: |
+      #     if git diff --quiet go.mod go.sum; then
+      #       echo "No dependency updates detected."
+      #       echo "updated=false" >> "$GITHUB_OUTPUT"
+      #     else
+      #       echo "Dependencies changed."
+      #       echo "updated=true" >> "$GITHUB_OUTPUT"
+      #     fi
 
-      - name: Commit updated go.mod/go.sum
-        if: steps.changes.outputs.updated == 'true'
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore(deps): update Caddy plugins"
-          branch: main
+      # - name: Commit updated go.mod/go.sum
+      #   if: steps.changes.outputs.updated == 'true'
+      #   uses: stefanzweifel/git-auto-commit-action@v5
+      #   with:
+      #     commit_message: "chore(deps): update Caddy plugins"
+      #     branch: main
 
       - name: Extract version & bump
-        if: steps.changes.outputs.updated == 'true'
+        # if: steps.changes.outputs.updated == 'true'
         id: tag
         run: |
           git fetch --tags
@@ -60,11 +60,11 @@ jobs:
           echo "version=$NEW_TAG" >> $GITHUB_OUTPUT
 
       - name: Set up Docker
-        if: steps.changes.outputs.updated == 'true'
+        # if: steps.changes.outputs.updated == 'true'
         uses: docker/setup-buildx-action@v3
 
       - name: Log in to GitHub Container Registry
-        if: steps.changes.outputs.updated == 'true'
+        # if: steps.changes.outputs.updated == 'true'
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
@@ -72,7 +72,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
-        if: steps.changes.outputs.updated == 'true'
+        # if: steps.changes.outputs.updated == 'true'
         uses: docker/build-push-action@v5
         with:
           push: true
@@ -84,7 +84,7 @@ jobs:
             linux/arm64
 
       - name: Create Git tag
-        if: steps.changes.outputs.updated == 'true'
+        # if: steps.changes.outputs.updated == 'true'
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
