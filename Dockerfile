@@ -1,5 +1,5 @@
 # Stage 1: Build custom Caddy
-FROM caddy:2-builder AS builder
+FROM caddy:2.11-builder AS builder
 
 COPY go.mod go.sum ./
 RUN go mod download
@@ -13,7 +13,7 @@ RUN xcaddy build \
   --with github.com/kriakiku/certmagic-s3@fix
 
 # Stage 2: Final image
-FROM caddy:2-alpine
+FROM caddy:2.11-alpine
 
 RUN apk add --no-cache curl
 
